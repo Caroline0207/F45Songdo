@@ -4,6 +4,7 @@ body {
     color: white; /* White text for contrast */
     padding: 20px;
     text-align: center; /* Center-aligns all text */
+    margin: 0; /* Removes default margin */
 }
 
 h1, h2, h3 {
@@ -57,7 +58,26 @@ button:hover {
 }
 
 @media (max-width: 600px) {
+    body {
+        padding: 10px; /* Reduced padding */
+    }
+
+    h1, h2, h3 {
+        font-size: 1.5em; /* Slightly smaller headings for mobile */
+    }
+
     form {
-        width: 90%;
+        width: 90%; /* Make form use more of the small screen */
+        padding: 15px; /* Reduced padding */
+    }
+
+    input[type='number'],
+    input[type='text'] {
+        padding: 8px; /* Slightly less padding to save space */
+    }
+
+    button {
+        padding: 8px 16px; /* Slightly less padding to save space */
+        font-size: 14px; /* Smaller font size for buttons */
     }
 }
