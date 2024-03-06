@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <title>송사오 Playoff Calculator</title>
+</head>
+<body>
+    <h1>송사오 Playoff Calculator </h1>
+
+    <form id="calculator">
+        <label for="name">Name:</label>
+        <input type="text" id="name" required><br>
+        <label for="rowing">Rowing: </label>
+        <input type="number" id="rowing" min="0"><br>
+
+        <label for="benchHop">Bench Hop: </label>
+        <input type="number" id="benchHop" min="0"><br>
+
+        <label for="pushup">Push Up: </label>
+        <input type="number" id="pushup" min="0"><br>
+
+        <label for="lateralhop">Lateral Hop: </label>
+        <input type="number" id="lateralhop" min="0"><br>
+
+        <label for="boxjump">Box Jump: </label>
+        <input type="number" id="boxjump" min="0"><br>
+
+        <label for="chinup">Chin up: </label>
+        <input type="number" id="chinup" min="0"><br>
+
+        <label for="squatpress">Squat Press: </label>
+        <input type="number" id="squatpress" min="0"><br>
+
+        <label for="russiantwist">Russian Twist: </label>
+        <input type="number" id="russiantwist" min="0"><br>
+
+        <label for="deadball">Deadball: </label>
+        <input type="number" id="deadball" min="0"><br>
+
+        <label for="sprint">Sprint: </label>
+        <input type="number" id="sprint" min="0"><br>
+
+        <button type="submit">점수 계산</button>
+    </form>
+
+    <h2>총점: <span id="totalScore">0</span></h2>
+    <h3>순위: <span id="ranking">-</span></h3>
+
+    <script>
+        let participants = [];
+        document.getElementById('calculator').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            const name = document.getElementById('name').value;
+
+            const rowing = parseFloat(document.getElementById('rowing').value) / 2.9;
+            const benchHop = parseFloat(document.getElementById('benchHop').value) * 1.0526;
+            const pushup = document.getElementById('pushup').value * 1.7543;
+            const lateralhop = document.getElementById('lateralhop').value * 0.7692;
+            const boxjump = document.getElementById('boxjump').value * 5;
+            const chinup = document.getElementById('chinup').value * 4;
+            const squatpress = document.getElementById('squatpress').value * 2.7778;
+            const russiantwist = document.getElementById('russiantwist').value * 1.1494;
+            const deadball = document.getElementById('deadball').value * 3.704;
+            const sprint = document.getElementById('sprint').value * 6.6667;
+    
+
+            const totalScore = rowing + benchHop+ pushup + lateralhop + boxjump + chinup + squatpress + russiantwist + deadball +sprint; 
+            participants.push({ name, score: totalScore });
+            participants.sort((a, b) => b.score - a.score);
+
+            const ranking = participants.findIndex(participant => participant.name === name) + 1;
+
+            document.getElementById('totalScore').textContent = totalScore.toFixed(2);
+            document.getElementById('ranking').textContent = ranking;
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,63 @@
+body {
+    font-family: 'Open Sans', sans-serif;
+    background-color: #211551; /* Deep blue background */
+    color: white; /* White text for contrast */
+    padding: 20px;
+    text-align: center; /* Center-aligns all text */
+}
+
+h1, h2, h3 {
+    color: white; /* White color for headings */
+    margin-top: 0;
+    padding-top: 20px;
+}
+
+form {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    color: #211551; /* Deep blue text inside the form */
+    max-width: 500px;
+    margin: 20px auto;
+    text-align: left; /* Aligns form content to the left */
+}
+
+label {
+    margin-top: 10px;
+    display: block;
+    font-weight: bold;
+}
+
+input[type='number'],
+input[type='text'] { /* Apply the same styling to text inputs */
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border-radius: 5px;
+    border: 1px solid #211551;
+    box-sizing: border-box; /* To ensure padding doesn't affect the width */
+}
+
+button {
+    background-color: #D6001C; /* Vibrant red button */
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 20px;
+    display: block; /* To allow margin auto */
+    margin-left: auto;
+    margin-right: auto;
+}
+
+button:hover {
+    background-color: #B00017; /* Slightly darker red on hover */
+}
+
+@media (max-width: 600px) {
+    form {
+        width: 90%;
+    }
+}
